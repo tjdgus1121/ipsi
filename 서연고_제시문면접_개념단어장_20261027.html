@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>기회균형 면접 개념단어장</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* 레이아웃: 시험지 같은 옅은 회녹색 바탕 + 흰 면, 상단 고정 목차, 섹션마다 왼쪽 제목 · 오른쪽 내용 */
+:root{
+  --paper:#f2f3ef; --surface:#fcfcfa; --ink:#1a1d23; --ink-2:#4a505b; --ink-3:#767c87;
+  --rule:#dde0d9; --rule-2:#c7cbc3;
+  --mark:#e6ef74; --mark-ink:#1a1d23;
+  --ku:#9b2335; --ys:#1f4f9e; --snu:#2c6b58; --est:#8a9099; --warn:#9a4a0e;
+  --f-display:"Hahmlet","Noto Serif KR",Georgia,serif;
+  --f-body:"IBM Plex Sans KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --nav-h:52px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131519; --surface:#1a1d22; --ink:#e8eaed; --ink-2:#b2b7bf; --ink-3:#868c96;
+    --rule:#2a2e35; --rule-2:#3b4048;
+    --mark:#4a5216; --mark-ink:#f2f6cf;
+    --ku:#ee8a99; --ys:#91b1f1; --snu:#86c9b3; --est:#9097a1; --warn:#f0a35e;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131519; --surface:#1a1d22; --ink:#e8eaed; --ink-2:#b2b7bf; --ink-3:#868c96;
+  --rule:#2a2e35; --rule-2:#3b4048;
+  --mark:#4a5216; --mark-ink:#f2f6cf;
+  --ku:#ee8a99; --ys:#91b1f1; --snu:#86c9b3; --est:#9097a1; --warn:#f0a35e;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:3px}
+.in{max-width:1100px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+mark,.kw{background:var(--mark);color:var(--mark-ink);padding:0 .2em;border-radius:2px}
+
+/* ── 머리말 ── */
+.mast{background:var(--surface);border-bottom:1px solid var(--rule)}
+.mast .in{padding-block:44px 32px}
+.eyebrow{margin:0 0 10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase}
+.mast h1{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
+.lede{margin:12px 0 0;max-width:62ch;color:var(--ink-2);font-size:16px}
+.facts{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.fact{padding:14px 18px;display:grid;gap:2px;align-content:start;background:var(--paper)}
+.fact + .fact{border-left:1px solid var(--rule)}
+.fact .k{font-size:13px;color:var(--ink-2);font-weight:500}
+.fact .v{font-family:var(--f-mono);font-size:28px;font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums}
+.fact .v small{font-size:15px;color:var(--ink-3);font-weight:400}
+.fact .s{font-size:12px;color:var(--ink-3)}
+.fact.urgent .v{display:inline-block;justify-self:start;background:var(--mark);color:var(--mark-ink);padding:0 8px;border-radius:4px}
+
+/* ── 상단 목차 ── */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:30;background:var(--surface)}
+.bar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:color-mix(in srgb, var(--surface) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar .in{display:flex;align-items:center;gap:18px;height:var(--nav-h)}
+.brand{font-family:var(--f-display);font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}
+.links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-right:-8px}
+.links::-webkit-scrollbar{display:none}
+.links a{flex:none;text-decoration:none;font-size:14px;color:var(--ink-2);padding:6px 10px;border-radius:6px;white-space:nowrap}
+.links a:hover{color:var(--ink);background:var(--paper)}
+.links a[aria-current="true"]{color:var(--ink);font-weight:600;background:var(--paper)}
+
+/* ── 섹션 ── */
+main{padding-bottom:40px}
+.sec{padding-block:56px 8px}
+.sec + .sec{border-top:1px solid var(--rule);margin-top:48px}
+.sec-h{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;margin-bottom:24px}
+.sec-h .no{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);letter-spacing:.06em}
+.sec-h h2{margin:0;font-family:var(--f-display);font-weight:700;font-size:26px;line-height:1.3;text-wrap:balance}
+.sec-h p{margin:0;max-width:66ch;color:var(--ink-2)}
+h3{text-wrap:balance}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:10px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c,var(--ink-3));flex:none}
+.c-ku{--c:var(--ku)} .c-ys{--c:var(--ys)} .c-snu{--c:var(--snu)} .c-est{--c:var(--est)}
+
+/* 1. 전형 비교 */
+.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.type{padding:20px 20px 18px;display:grid;grid-template-rows:auto 1fr auto;gap:14px}
+.type header{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.type h3{margin:0;font-family:var(--f-display);font-size:19px;font-weight:700;color:var(--c)}
+.kind{margin-left:auto;font-size:12px;font-weight:600;padding:2px 9px;border-radius:99px;border:1px solid var(--rule-2);color:var(--ink-2)}
+.kind.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.type dl{margin:0;display:grid;grid-template-columns:44px minmax(0,1fr);gap:9px 12px;font-size:14px;align-content:start}
+.type dt{color:var(--ink-3);font-size:12px;padding-top:2px}
+.type dd{margin:0}
+.meter{border-top:1px solid var(--rule);padding-top:12px;display:grid;gap:6px}
+.meter .lbl{display:flex;justify-content:space-between;font-size:13px}
+.meter .lbl b{font-weight:600}
+.meter .cells{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.meter .cells i{height:6px;border-radius:2px;background:var(--rule)}
+.meter .cells i.f{background:var(--c)}
+.meter .hint{font-size:12px;color:var(--ink-3)}
+
+/* 2. 기출 */
+.exam{display:grid;gap:20px}
+.grp{padding:6px 0}
+.grp-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--rule)}
+.grp-h h3{margin:0;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
+.grp-h small{font-size:13px;color:var(--ink-3)}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:52px 104px minmax(0,1fr);gap:0 16px;padding:12px 20px;font-size:14.5px}
+.rows li + li{border-top:1px dashed var(--rule)}
+.rows .yr{font-family:var(--f-mono);font-weight:600}
+.rows .fld{color:var(--ink-2);font-size:13px;padding-top:1px}
+.rows p{margin:0}
+.rows li.na p{color:var(--ink-3);font-style:italic}
+.grp.ref .rows li{color:var(--ink-2)}
+.why{margin:6px 0 0;font-size:13px;color:var(--ink-2)}
+.struct{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.struct > div{padding:18px 20px}
+.struct h4{margin:0 0 10px;font-size:15px;display:flex;align-items:center;gap:8px}
+.struct ol{margin:0;padding:0;list-style:none;counter-reset:st;display:grid;gap:8px;font-size:14px}
+.struct ol li{counter-increment:st;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px}
+.struct ol li::before{content:counter(st);font-family:var(--f-mono);font-size:12px;font-weight:600;width:22px;height:22px;border-radius:50%;border:1px solid var(--rule-2);display:grid;place-items:center}
+.struct p{margin:12px 0 0;font-size:13px;color:var(--ink-2)}
+
+/* 3. 우선순위 */
+.prio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.prio > div{padding:16px 18px 10px}
+.prio h3{margin:0 0 8px;font-size:14px;display:flex;justify-content:space-between;align-items:baseline}
+.prio h3 span{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);font-weight:400}
+.prio ul{list-style:none;margin:0;padding:0}
+.prio li + li{border-top:1px solid var(--rule)}
+.prio a{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;align-items:start;padding:9px 0;text-decoration:none}
+.prio a:hover b{text-decoration:underline;text-underline-offset:3px}
+.prio .box{width:14px;height:14px;margin-top:4px;border:1.5px solid var(--rule-2);border-radius:3px;display:grid;place-items:center;font-size:10px;line-height:1;color:var(--surface)}
+.prio a.ok .box{background:var(--ink);border-color:var(--ink)}
+.prio a.ok b{color:var(--ink-3);text-decoration:line-through}
+.prio b{font-weight:600;font-size:14.5px;display:block}
+.prio small{display:block;font-size:12px;color:var(--ink-3);line-height:1.5}
+
+/* 4. 2027 예상 */
+.pred{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pred > div{padding:18px 20px;display:grid;gap:10px;align-content:start}
+.pred h3{margin:0;font-size:15px;display:flex;align-items:center;gap:8px}
+.pred p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;padding:2px 10px;border-radius:99px;border:1px solid var(--rule-2);background:var(--surface)}
+.chip.hot{background:var(--mark);color:var(--mark-ink);border-color:transparent;font-weight:600}
+.pred .math{font-size:13px;color:var(--ink-2);border-top:1px dashed var(--rule);padding-top:10px}
+
+/* 5. 단어장 */
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2);margin-bottom:14px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.controls{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:12px;display:grid;gap:10px}
+@media (min-width:761px){.controls{position:sticky;top:calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 8px);z-index:10;box-shadow:0 6px 16px -12px rgba(0,0,0,.25)}}
+.c-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.search{flex:1 1 220px;min-width:0;font:inherit;font-size:14px;padding:8px 12px;border:1px solid var(--rule-2);border-radius:8px;background:var(--paper);color:var(--ink)}
+.stat{font-size:13px;color:var(--ink-3);margin-left:auto}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:8px;overflow:hidden}
+.seg button{font:inherit;font-size:13px;border:0;background:var(--surface);color:var(--ink-2);padding:6px 12px;cursor:pointer;min-height:32px}
+.seg button + button{border-left:1px solid var(--rule-2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface);font-weight:600}
+.sel{font:inherit;font-size:13px;padding:6px 28px 6px 10px;min-height:34px;border:1px solid var(--rule-2);border-radius:8px;background:var(--surface);color:var(--ink)}
+.sw{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);cursor:pointer;padding:4px 2px;user-select:none}
+.sw input{accent-color:var(--ink);width:15px;height:15px;margin:0}
+.c-sep{width:1px;height:20px;background:var(--rule)}
+
+.list{margin-top:16px;padding:0 4px}
+.entry{display:grid;grid-template-columns:64px 230px minmax(0,1fr);gap:0 24px;padding:24px 20px;border-bottom:1px solid var(--rule);scroll-margin-top:calc(var(--nav-h) + 150px)}
+.list .entry:last-child{border-bottom:0}
+.entry:target{background:color-mix(in srgb, var(--mark) 28%, var(--surface));border-radius:8px}
+.ix{display:grid;gap:8px;align-content:start;justify-items:start}
+.ix .n{font-family:var(--f-mono);font-size:13px;color:var(--ink-3)}
+.pri{font-size:11px;font-weight:600;padding:1px 7px;border-radius:4px;white-space:nowrap}
+.pri.p1{background:var(--ink);color:var(--surface)}
+.pri.p2{border:1px solid var(--ink-2);color:var(--ink)}
+.pri.p3{border:1px dashed var(--rule-2);color:var(--ink-3)}
+.hw h3{margin:0;font-family:var(--f-display);font-size:23px;font-weight:700;line-height:1.3}
+.hw .hj{margin:2px 0 0;font-size:13px;color:var(--ink-3)}
+.hw .en{margin:4px 0 0;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2)}
+.hw .foot{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.cat{font-size:12px;color:var(--ink-3);border:1px solid var(--rule);border-radius:4px;padding:0 6px}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);cursor:pointer;min-height:28px}
+.chk input{accent-color:var(--ink);width:15px;height:15px;margin:0}
+.bd{display:grid;gap:12px;align-content:start;max-width:68ch}
+.bd p{margin:0}
+.def{font-size:15.5px;line-height:1.75}
+.ex{font-size:14.5px;color:var(--ink-2);padding:10px 14px;background:var(--paper);border-radius:8px}
+.ex b{font-size:12px;font-weight:600;color:var(--ink-3);margin-right:8px}
+.rel{margin:0;display:grid;grid-template-columns:36px minmax(0,1fr);gap:4px 10px;font-size:13.5px}
+.rel dt{color:var(--ink-3);font-size:12px;padding-top:1px}
+.rel dd{margin:0}
+.src{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--ink-2)}
+.src li{display:inline-flex;align-items:center;gap:6px}
+.src li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.src li.K::before{background:transparent;border:1.5px solid var(--c);width:7px;height:7px}
+.src li.P::before{background:transparent;border:1.5px dashed var(--c);width:7px;height:7px}
+.G,.K{--c:var(--ku)} .Y{--c:var(--ys)} .S{--c:var(--snu)} .P{--c:var(--est)}
+.p27{font-size:13.5px;padding:8px 12px;border:1px dashed var(--rule-2);border-radius:8px}
+.p27 b{font-family:var(--f-mono);font-size:11px;background:var(--mark);color:var(--mark-ink);padding:1px 6px;border-radius:3px;margin-right:8px}
+.entry.done h3{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1px}
+.hide .bd{filter:blur(7px);cursor:pointer;user-select:none;transition:filter .15s}
+.hide .entry.open .bd{filter:none}
+@media (prefers-reduced-motion: reduce){.hide .bd{transition:none}}
+.empty{padding:40px;text-align:center;color:var(--ink-3)}
+
+/* 6. 요령 */
+.tips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tips > div{padding:18px 20px;display:grid;gap:12px;align-content:start}
+.tips h3{margin:0;font-size:15px;display:flex;align-items:center;gap:8px}
+.tips ol,.tips ul{margin:0;padding-left:20px;font-size:14px;display:grid;gap:6px}
+.time{display:grid;gap:4px}
+.track{display:flex;height:26px;border-radius:6px;overflow:hidden;background:var(--paper)}
+.track span{display:grid;place-items:center;font-size:11.5px;font-weight:600;white-space:nowrap;overflow:hidden;border-right:2px solid var(--surface)}
+.track .a{background:color-mix(in srgb, var(--c) 18%, var(--surface));color:var(--ink)}
+.track .b{background:color-mix(in srgb, var(--c) 34%, var(--surface));color:var(--ink)}
+.track .c{background:var(--c);color:var(--surface)}
+.ticks{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;color:var(--ink-3)}
+
+/* 자료 */
+.sources{margin-top:56px;border-top:1px solid var(--rule);padding-top:24px;font-size:13px;color:var(--ink-2)}
+.sources h2{font-size:14px;margin:0 0 10px}
+.sources ul{margin:0;padding-left:18px;display:grid;gap:4px;columns:2;column-gap:32px}
+.sources li{break-inside:avoid}
+.sources a{text-underline-offset:3px}
+.sources p{margin:14px 0 0;color:var(--ink-3)}
+
+@media (max-width:960px){
+  .types,.pred,.prio{grid-template-columns:minmax(0,1fr)}
+  .entry{grid-template-columns:48px minmax(0,1fr)}
+  .entry .bd{grid-column:2}
+  .hw{margin-bottom:14px}
+}
+@media (max-width:760px){
+  .mast .in{padding-block:32px 24px}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .fact + .fact{border-left:0;border-top:1px solid var(--rule)}
+  .fact{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+  .fact .v{grid-row:span 2;grid-column:2;font-size:24px}
+  .brand{display:none}
+  .sec{padding-block:40px 4px}
+  .sec + .sec{margin-top:32px}
+  .rows li{grid-template-columns:44px minmax(0,1fr);padding:12px 16px}
+  .rows .fld{grid-column:2}
+  .rows p{grid-column:2;margin-top:2px}
+  .grp-h{padding:12px 16px}
+  .struct,.tips{grid-template-columns:minmax(0,1fr)}
+  .entry{grid-template-columns:minmax(0,1fr);padding:20px 14px;scroll-margin-top:calc(var(--nav-h) + 12px)}
+  .entry .bd{grid-column:1}
+  .ix{grid-auto-flow:column;justify-content:start;align-items:center;margin-bottom:6px}
+  .sources ul{columns:1}
+  .c-sep{display:none}
+  .stat{margin-left:0;width:100%}
+}
+@media print{
+  .bar,.controls,.chk{display:none}
+  body{background:#fff}
+  .entry{break-inside:avoid}
+  .hide .bd{filter:none}
+}
+</style>
+</head>
+<body>
+
+<header class="mast" id="top">
+  <div class="in">
+    <p class="eyebrow">2027학년도 수시 · 제시문 면접 대비</p>
+    <h1>기회균형 면접 개념단어장</h1>
+    <p class="lede">고려대 고른기회, 연세대 기회균형, 서울대 기회균형 지원생을 위해 최근 기출에서 꼭 알아야 할 개념어 62개를 골랐습니다. 2026년 10월 27일 기준입니다.</p>
+    <div class="facts">
+      <div class="fact urgent">
+        <span class="k">연세대 기회균형 면접</span>
+        <span class="v" id="dday">D-5</span>
+        <span class="s">11월 1일(일) · 보도 기준, 수험표로 확인</span>
+      </div>
+      <div class="fact">
+        <span class="k">고려대 고른기회 면접</span>
+        <span class="v">미정</span>
+        <span class="s">1단계 합격 발표 공지로 확인</span>
+      </div>
+      <div class="fact">
+        <span class="k">외운 단어</span>
+        <span class="v"><span id="doneN">0</span><small>/<span id="totalN">62</span></small></span>
+        <span class="s">1순위 26개부터 외우세요</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="bar" aria-label="목차">
+  <div class="in">
+    <a class="brand" href="#top">개념단어장</a>
+    <div class="links">
+      <a href="#s-type">전형</a>
+      <a href="#s-exam">기출</a>
+      <a href="#s-prio">우선순위</a>
+      <a href="#s-pred">2027 예상</a>
+      <a href="#s-words">단어장</a>
+      <a href="#s-tips">답변 요령</a>
+    </div>
+  </div>
+</nav>
+
+<main class="in">
+
+<section class="sec" id="s-type">
+  <div class="sec-h">
+    <span class="no">01</span>
+    <h2>전형별 면접 방식</h2>
+    <p>세 전형 가운데 제시문 면접은 연세대와 고려대입니다. 서울대 기회균형은 제출 서류를 바탕으로 묻습니다.</p>
+  </div>
+  <div class="types">
+    <article class="type panel c-ys">
+      <header><span class="dot"></span><h3>연세대 기회균형</h3><span class="kind on">제시문</span></header>
+      <dl>
+        <dt>방식</dt><dd>현장 녹화 면접, 꼬리질문 없음</dd>
+        <dt>시간</dt><dd>제시문 숙지 <b>8분</b> → 태블릿 녹화 <b>5분</b></dd>
+        <dt>문항</dt><dd>2개 (보통 60점 + 40점)</dd>
+        <dt>틀</dt><dd>활동우수형·국제형과 같은 제시문 기반 논리적 사고력 평가. “[가]의 관점에서 [나]·[다]를 비교하라”</dd>
+      </dl>
+      <div class="meter"><div class="lbl"><span>단어장 활용도</span><b>높음</b></div><div class="cells"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><span class="hint">가장 먼저 치르는 면접</span></div>
+    </article>
+    <article class="type panel c-ku">
+      <header><span class="dot"></span><h3>고려대 고른기회</h3><span class="kind on">제시문</span></header>
+      <dl>
+        <dt>방식</dt><dd>대면 면접, 계열적합과 <b>다른 문항</b></dd>
+        <dt>시간</dt><dd>준비 <b>12분</b> → 답변 <b>6분</b></dd>
+        <dt>문항</dt><dd>3개, 교과를 섞은 제시문 4~5개</dd>
+        <dt>반영</dt><dd>1단계 60% + 면접 40%. 2028학년 이후에도 제시문 면접 유지</dd>
+      </dl>
+      <div class="meter"><div class="lbl"><span>단어장 활용도</span><b>매우 높음</b></div><div class="cells"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><span class="hint">기출 개념이 그대로 이어짐</span></div>
+    </article>
+    <article class="type panel c-snu">
+      <header><span class="dot"></span><h3>서울대 기회균형</h3><span class="kind">서류 기반</span></header>
+      <dl>
+        <dt>방식</dt><dd>제출 서류 확인 + 기본적인 학업 소양 평가</dd>
+        <dt>시간</dt><dd>10분 내외</dd>
+        <dt>문항</dt><dd>생기부 내용에서 출발. 사범대는 교직적성·인성면접 포함</dd>
+        <dt>반영</dt><dd>1단계 서류 100%(2배수) → 1단계 70% + 면접 30%</dd>
+      </dl>
+      <div class="meter"><div class="lbl"><span>단어장 활용도</span><b>낮음</b></div><div class="cells"><i class="f"></i><i></i><i></i><i></i></div><span class="hint">세특에 나온 개념만 골라 점검</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="s-exam">
+  <div class="sec-h">
+    <span class="no">02</span>
+    <h2>지원 전형 기출</h2>
+    <p>대학이 공개한 선행학습 영향평가 보고서와 안내서 원문을 기준으로 정리했습니다. 형광 표시는 단어장에 넣은 개념입니다.</p>
+  </div>
+  <div class="exam">
+    <div class="grp panel c-ku">
+      <div class="grp-h"><h3><span class="dot"></span>고려대 고른기회</h3><small>12분 준비 · 6분 답변 · 3문항</small></div>
+      <ol class="rows">
+        <li><span class="yr">2026</span><span class="fld">인문</span><p><mark>생물 다양성</mark> · <mark>문화 상대주의 vs 보편 윤리</mark>(명예 살인) · <mark>규칙 공리주의</mark> · 혼분식 운동과 체벌을 그린 소설에서 화자의 언행 평가</p></li>
+        <li><span class="yr">2026</span><span class="fld">자연</span><p><mark>시민 불복종</mark> · 자석과 코일(<mark>전자기 유도</mark>) · <mark>탄소 순환</mark>(변화 속 평형) · <mark>인수분해</mark>로 직각삼각형 판별<span class="why" style="display:block">출제 의도 “변화와 균형”, 예시답안에 “소통과 피드백”</span></p></li>
+        <li class="na"><span class="yr">2025</span><span class="fld">—</span><p>공개 자료를 찾지 못했습니다</p></li>
+        <li><span class="yr">2024</span><span class="fld">인문</span><p><mark>반비례</mark>(유리함수) · 경제 발전과 도덕 수준의 불균형 · 쾌락의 <mark>역설</mark> · 노인 목수의 집 그림에서 <mark>통념과 실재</mark></p></li>
+        <li><span class="yr">2024</span><span class="fld">자연</span><p>공통 개념 “<mark>합성</mark>”: 화합물, 신소재, 단백질(전사·번역), 빛의 삼원색, 합성함수</p></li>
+        <li><span class="yr">2023</span><span class="fld">인문</span><p>로봇의 도덕적 지위 · 러다이트 운동 · 베이컨의 <mark>인간 중심주의</mark> · 「삼포 가는 길」(<mark>산업화</mark>)</p></li>
+        <li><span class="yr">2023</span><span class="fld">자연</span><p><mark>수학적 증명</mark> · 과학 탐구 방법 · <mark>귀납법</mark> · <mark>귀류법</mark></p></li>
+      </ol>
+    </div>
+    <div class="grp panel c-ys">
+      <div class="grp-h"><h3><span class="dot"></span>연세대</h3><small>8분 준비 · 5분 녹화 · 2문항</small></div>
+      <ol class="rows">
+        <li><span class="yr">2024</span><span class="fld">기회균형(보도)</span><p>세상을 이해하는 방식: 위궤양균 자기 실험(<mark>과학적 검증</mark>) · 자연주의 육아(직관) · <mark>음모론</mark> · 무작위 전구 실험(<mark>확률과 패턴</mark>). 2025 활동우수 예시문항으로 다시 공개됨</p></li>
+        <li><span class="yr">2025</span><span class="fld">활동우수 인문·통합</span><p>다윈의 <mark>진화</mark> vs 스펜서의 <mark>진보</mark>(사회진화론) · 나치 우생 논리 · 인간-동물 구분과 <mark>위계</mark> · 집단별 ‘사람다움’ 점수 실험(<mark>비인간화</mark>)</p></li>
+        <li><span class="yr">2025</span><span class="fld">활동우수 자연</span><p>갈릴레오 망원경 · 토끼-오리 그림(<mark>관찰의 이론 의존성</mark>) · 멘델 데이터 의혹(<mark>연구 윤리</mark>) · 포퍼(<mark>오류 수정과 과학의 진보</mark>)</p></li>
+      </ol>
+    </div>
+    <div class="grp panel ref c-est">
+      <div class="grp-h"><h3><span class="dot"></span>같은 12분·6분 형식 참고</h3><small>고려대 다른 전형</small></div>
+      <ol class="rows">
+        <li><span class="yr">2026</span><span class="fld">재외·북한이탈</span><p>기후 변화 vs 사회 구조 변화, 지속가능발전 / 자연: 변화 · 항상성 · 유지</p></li>
+        <li><span class="yr">2024</span><span class="fld">학업우수</span><p>보편·특수 윤리, 윤리적 상대주의, 인간 존엄 / 국가 개입·무위의 다스림 / 매개·촉매 / 종속·자유</p></li>
+        <li><span class="yr">2023</span><span class="fld">학업우수</span><p>공동체주의·자유주의·복지국가 / 문화 다양성·문화 상대주의 / 결핍·보충·대체·치환 / 규칙·반복·질서</p></li>
+      </ol>
+    </div>
+  </div>
+  <div class="struct">
+    <div class="panel c-ku">
+      <h4><span class="dot"></span>고려대 고른기회 문항 순서 (3년 공통)</h4>
+      <ol>
+        <li>두 제시문의 공통점·차이점, 또는 공통 개념 한 단어</li>
+        <li>한 제시문의 관점으로 다른 제시문 평가</li>
+        <li>문학 작품이나 수학식에 적용</li>
+      </ol>
+      <p>자연계에도 사회 제시문(시민 불복종)이, 인문계에도 수학(반비례)이 나옵니다. 수학 연결은 유리함수 → 합성함수 → 인수분해로 매년 바뀌었습니다.</p>
+    </div>
+    <div class="panel c-ys">
+      <h4><span class="dot"></span>연세대 문항 순서</h4>
+      <ol>
+        <li>“[가]의 관점에서 [나]와 [다]를 비교” (60점)</li>
+        <li>“[다]의 관점에서 [라]의 결과·자료를 해석” (40점)</li>
+      </ol>
+      <p>2024·2025 모두 세상을 이해하는 방식, 과학과 믿음, 위계와 차별을 다뤘습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="s-prio">
+  <div class="sec-h">
+    <span class="no">03</span>
+    <h2>1순위 개념 26개</h2>
+    <p>지원 전형 기출과 바로 이어지는 개념입니다. 누르면 단어 카드로 이동하고, 외운 단어는 체크 표시됩니다.</p>
+  </div>
+  <div class="prio" id="prio"></div>
+</section>
+
+<section class="sec" id="s-pred">
+  <div class="sec-h">
+    <span class="no">04</span>
+    <h2>2027 예상 개념</h2>
+    <p>기출 흐름에서 뽑은 추정이라 적중을 보장하지 않습니다. 형광 표시가 가장 유력한 후보입니다.</p>
+  </div>
+  <div class="pred">
+    <div class="panel c-ku">
+      <h3><span class="dot"></span>고려대 고른기회 · 자연</h3>
+      <p>매년 “공통 개념 한 단어”를 다른 과목 사례로 묻습니다(증명 → 합성 → 변화와 균형). 같은 개념을 반복하지 않았으므로 아직 나오지 않은 구조 개념이 유력합니다.</p>
+      <div class="chips"><span class="chip hot">피드백</span><span class="chip hot">주기 · 반복</span><span class="chip hot">항상성</span><span class="chip">보존</span><span class="chip">전환</span><span class="chip">상호작용</span><span class="chip">대칭</span><span class="chip">확산</span><span class="chip">적응</span><span class="chip">임계점</span><span class="chip">매개 · 촉매</span></div>
+      <div class="math">수학 연결 후보: 역함수, 수열(점화식), 지수·로그, 삼각함수(주기), 등식과 부등식</div>
+    </div>
+    <div class="panel c-ku">
+      <h3><span class="dot"></span>고려대 고른기회 · 인문</h3>
+      <p>윤리 이론 하나, 사회 개념 하나, 문학 작품 적용으로 짜입니다. 공리주의·인간 중심주의·상대주의가 나왔으므로 짝이 되는 이론이 이어질 가능성이 큽니다.</p>
+      <div class="chips"><span class="chip hot">의무론(칸트)</span><span class="chip hot">사회 계약</span><span class="chip hot">분배적 정의</span><span class="chip">덕 윤리</span><span class="chip">자유주의 vs 공동체주의</span><span class="chip">인간 존엄성</span><span class="chip">소외 · 노동</span><span class="chip">환경 윤리</span><span class="chip">세계화</span><span class="chip">역설</span></div>
+    </div>
+    <div class="panel c-ys">
+      <h3><span class="dot"></span>연세대 기회균형</h3>
+      <p>안내서가 소개한 기출 주제가 인문·통합 “자유와 권리”, 자연 “과학철학”이라는 보도가 있습니다. 2024·2025 흐름과 함께 보면 아래 개념이 핵심입니다.</p>
+      <div class="chips"><span class="chip hot">자유와 권리</span><span class="chip hot">관찰 · 검증</span><span class="chip hot">반증 · 과학의 진보</span><span class="chip">위해의 원칙</span><span class="chip">과학의 객관성</span><span class="chip">인지 편향</span><span class="chip">확률 · 무작위성</span><span class="chip">정상과 비정상</span><span class="chip">인공지능과 인간</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="s-words">
+  <div class="sec-h">
+    <span class="no">05</span>
+    <h2>개념 단어장</h2>
+    <p>우선순위 순서로 정렬했습니다. 「뜻 가리기」를 켜고 단어만 보며 설명해 본 뒤, 눌러서 확인하세요. 외운 단어 체크는 이 브라우저에 저장됩니다.</p>
+  </div>
+  <div class="legend">
+    <span><span class="pri p1">1순위</span> 지원 전형 기출과 직결</span>
+    <span><span class="pri p2">2순위</span> 같은 형식 기출 · 2027 예상 상위</span>
+    <span><span class="pri p3">3순위</span> 참고</span>
+    <span><span class="dot c-ku"></span>고려대 고른기회</span>
+    <span><span class="dot c-ys"></span>연세대</span>
+    <span><span class="dot c-snu"></span>서울대 일반</span>
+    <span><span class="dot c-ku" style="background:transparent;border:1.5px solid var(--ku)"></span>고려대 다른 전형</span>
+  </div>
+  <div class="controls">
+    <div class="c-row">
+      <input id="q" class="search" type="search" placeholder="단어, 영어, 연관어로 검색" aria-label="단어 검색">
+      <span class="stat mono" id="stat"></span>
+    </div>
+    <div class="c-row">
+      <div class="seg" id="prSeg" role="group" aria-label="우선순위">
+        <button type="button" data-v="all" aria-pressed="true">전체</button>
+        <button type="button" data-v="1" aria-pressed="false">1순위</button>
+        <button type="button" data-v="2" aria-pressed="false">2순위</button>
+        <button type="button" data-v="3" aria-pressed="false">3순위</button>
+      </div>
+      <select id="uniSel" class="sel" aria-label="출처">
+        <option value="all">모든 출처</option>
+        <option value="G">고려대 고른기회</option>
+        <option value="Y">연세대</option>
+        <option value="K">고려대 다른 전형</option>
+        <option value="S">서울대</option>
+      </select>
+      <select id="catSel" class="sel" aria-label="분야">
+        <option value="all">전 분야</option>
+        <option value="통합">통합 개념</option>
+        <option value="인문">인문 · 윤리</option>
+        <option value="사회">사회 · 자료</option>
+      </select>
+      <span class="c-sep" aria-hidden="true"></span>
+      <label class="sw"><input type="checkbox" id="p27Chk"> 2027 예상만</label>
+      <label class="sw"><input type="checkbox" id="todoChk"> 안 외운 것만</label>
+      <label class="sw"><input type="checkbox" id="hideChk"> 뜻 가리기</label>
+    </div>
+  </div>
+  <div class="list panel" id="list"></div>
+</section>
+
+<section class="sec" id="s-tips">
+  <div class="sec-h">
+    <span class="no">06</span>
+    <h2>시간 배분과 답변 요령</h2>
+    <p>막대 길이는 같은 눈금(18분)으로 그렸습니다. 고려대는 연세대보다 준비 시간이 4분 길고 답변도 1분 깁니다.</p>
+  </div>
+  <div class="tips">
+    <div class="panel c-ys">
+      <h3><span class="dot"></span>연세대 기회균형 · 8분 준비 / 5분 녹화</h3>
+      <div class="time">
+        <div class="track" role="img" aria-label="읽기 4분, 메모 4분, 문제1 답변 3분, 문제2 답변 2분, 총 13분">
+          <span class="a" style="width:22.2%">읽기 4</span><span class="b" style="width:22.2%">메모 4</span><span class="c" style="width:16.7%">문1 3</span><span class="c" style="width:11.1%">문2 2</span>
+        </div>
+        <div class="ticks"><span>0</span><span>6분</span><span>12분</span><span>18분</span></div>
+      </div>
+      <ol>
+        <li>읽기 4분: 제시문마다 <b>주장 한 줄</b>을 여백에 적기</li>
+        <li>메모 4분: 문제 1(60점)은 비교 기준 2개, 문제 2(40점)는 결론 한 문장</li>
+        <li>녹화: 문제 1 약 3분, 문제 2 약 2분. 꼬리질문이 없으니 <b>첫 문장에 결론</b></li>
+        <li>“[가]의 관점에서”라고 하면 [가]의 핵심 개념어를 그대로 잣대로 쓰기</li>
+      </ol>
+    </div>
+    <div class="panel c-ku">
+      <h3><span class="dot"></span>고려대 고른기회 · 12분 준비 / 6분 답변</h3>
+      <div class="time">
+        <div class="track" role="img" aria-label="읽기 4분, 문항별 메모 8분, 답변 6분, 총 18분">
+          <span class="a" style="width:22.2%">읽기 4</span><span class="b" style="width:44.4%">문항별 메모 8</span><span class="c" style="width:33.4%">답변 6</span>
+        </div>
+        <div class="ticks"><span>0</span><span>6분</span><span>12분</span><span>18분</span></div>
+      </div>
+      <ol>
+        <li>읽기 4분 → 문항별 메모 각 2~3분</li>
+        <li>1번은 <b>개념 한 단어</b>부터 말하기(“공통 개념은 ‘균형’입니다”). 비슷한 개념도 인정됨</li>
+        <li>답변 6분: 문항당 약 2분, 정의 → 제시문 근거 → 적용 순서</li>
+        <li>문학·수학 문항은 앞 문항의 개념을 다시 끌어와 연결</li>
+      </ol>
+    </div>
+    <div class="panel c-snu">
+      <h3><span class="dot"></span>서울대 기회균형 · 서류 기반 10분</h3>
+      <ul>
+        <li>생기부에 쓴 교과 개념(세특)을 <b>정의 + 내가 한 활동 + 배운 점</b>으로 설명할 수 있게 점검</li>
+        <li>“기본적인 학업 소양”을 보므로 세특 속 개념을 한 단계 더 물을 수 있음</li>
+        <li>이 단어장은 세특에 나온 개념만 골라 보면 충분</li>
+      </ul>
+    </div>
+    <div class="panel c-est">
+      <h3><span class="dot"></span>세 전형 공통</h3>
+      <ul>
+        <li>제시문 문장을 되풀이하지 말고 <b>자기 말로</b> 바꾸기(고려대 입학처 당부)</li>
+        <li>평가 문항은 <b>긍정 하나 + 한계 하나</b>로 균형 있게</li>
+        <li>단어장 예문을 소리 내어 읽고, 같은 길이로 자기 문장을 만들어 보기</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="sources">
+  <h2>자료</h2>
+  <ul>
+    <li><a href="https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90/%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EC%84%A0%ED%96%89%ED%95%99%EC%8A%B5%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80.pdf" target="_blank" rel="noopener">고려대 2026학년도 선행학습 영향평가 보고서</a></li>
+    <li><a href="https://files-scs.pstatic.net/2024/10/31/KzL9i9ITzH/2024학년도%20고려대학교%20선행학습%20영향평가%20자체평가보고서.pdf" target="_blank" rel="noopener">고려대 2024학년도 보고서</a></li>
+    <li><a href="https://files-scs.pstatic.net/2024/10/31/nXlOmUSPSA/2023학년도%20고려대학교%20선행학습%20영향평가%20결과보고서_수정.pdf" target="_blank" rel="noopener">고려대 2023학년도 보고서</a></li>
+    <li><a href="https://www2.yonsei.ac.kr/entrance/2025/2026%ED%95%99%EB%85%84%EB%8F%84_%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90_%ED%95%99%EC%83%9D%EB%B6%80%EC%A2%85%ED%95%A9%EC%A0%84%ED%98%95%EC%95%88%EB%82%B4%EC%84%9C.pdf" target="_blank" rel="noopener">연세대 2026학년도 학생부종합전형 안내서</a></li>
+    <li><a href="https://admission.snu.ac.kr/webdata/admission/files/2025susi.pdf" target="_blank" rel="noopener">서울대 2025학년도 수시 모집요강</a></li>
+    <li><a href="https://sanedu.com/?p=36370" target="_blank" rel="noopener">산에듀 서울대 2027 전형 가이드</a></li>
+    <li><a href="https://www.betanews.net/article/view/beta202609100036" target="_blank" rel="noopener">베타뉴스 연세대 기회균형 일정</a></li>
+    <li><a href="https://www.veritas-a.com/news/articleView.html?idxno=515859" target="_blank" rel="noopener">베리타스알파 고려대 고른기회 반영비율</a></li>
+    <li><a href="http://www.nextplay.kr/news/articleView.html?idxno=7845" target="_blank" rel="noopener">괜찮은뉴스 연세대 예시문항</a></li>
+  </ul>
+  <p>2025학년도 고려대 고른기회 문항과 연세대 기회균형 2025·2026 전용 문항은 공개 자료로 확인하지 못했습니다. 연세대 2024 기회균형 기출은 보도 내용입니다.</p>
+</footer>
+
+</main>
+
+<script>
+// t 태그: G=고려대 고른기회(및 같은 12분·6분 형식), Y=연세대, K=고려대 다른 전형, S=서울대 일반, P=예상
+// pr: 이 학생 기준 우선순위, p27: 2027 예상 근거
+const W = [
+// ───── 통합 개념 ─────
+{w:"균형 · 평형",hj:"均衡·平衡",en:"equilibrium / balance",c:"통합",s:3,pr:1,
+ d:"반대 방향의 힘이나 변화가 맞서 겉으로 변화가 멈춘 상태. 정적 평형(힘의 평형)과, 계속 움직이면서 유지되는 동적 평형(화학 평형·생태계 평형·탄소 순환)을 구분한다.",
+ e:"탄소는 생물권과 대기를 계속 오가지만 총량은 유지되는 ‘변화 속 평형’을 이루고, 사회도 변화 뒤에 새 합의로 다시 안정됩니다.",
+ r:"르샤틀리에 원리, 항상성, 탄소 순환, 견제와 균형",a:"불균형, 임계점 붕괴",
+ t:["G:2026 자연(변화와 균형)","K:2023 계열적합(생태계 평형)","S:2026 화학"]},
+{w:"피드백",hj:"",en:"feedback (positive / negative)",c:"통합",s:3,pr:1,
+ d:"결과가 다시 원인에 영향을 주는 순환 구조. 음성 피드백은 변화를 억눌러 안정을, 양성 피드백은 변화를 키워 급변을 만든다.",
+ e:"체온이 오르면 땀을 흘려 낮추는 것은 음성 피드백이고, 빙하가 녹아 반사율이 줄면서 더 녹는 것은 양성 피드백입니다.",
+ r:"항상성, 균형, 알베도, 자기실현적 예언",a:"일방향 인과",
+ t:["G:2026 자연 예시답안(소통과 피드백)"],p27:"고른기회 자연이 ‘균형’ 다음으로 직접 주제로 삼기 좋은 개념"},
+{w:"항상성 · 조절",hj:"恒常性",en:"homeostasis / regulation",c:"통합",s:3,pr:1,
+ d:"생물이 외부 변화에도 체내 환경을 일정하게 지키려는 성질. 변하는 요소와 일정하게 유지되는 요소를 구분해 설명한다.",
+ e:"혈당이 오르면 인슐린이 나와 낮추듯, 사회 보험도 소득 충격을 흡수해 생활을 일정하게 유지합니다.",
+ r:"음성 피드백, 동적 평형, 자동안정화장치",a:"",
+ t:["G:2026 재외·북한이탈 자연(같은 형식)"],p27:"같은 12분 형식의 2026 문항 개념, 고른기회 자연 후보"},
+{w:"유도",hj:"誘導",en:"induction",c:"통합",s:3,pr:1,
+ d:"한쪽의 변화가 다른 쪽에 새로운 반응을 끌어내는 것. 코일 속 자기장이 변하면 전류가 생기는 전자기 유도가 대표적이다. 정지된 상태를 깨는 원인이 새 질서를 만든다는 구조로 사회에도 적용된다.",
+ e:"자석을 움직여야 코일에 전류가 흐르듯, 부당한 법에 맞선 시민 불복종이 사회 변화를 유도합니다.",
+ r:"패러데이 법칙, 렌츠 법칙, 시민 불복종",a:"",
+ t:["G:2026 자연","K:2024 계열적합","S:2026 물리"]},
+{w:"합성",hj:"合成",en:"synthesis / composition",c:"통합",s:3,pr:1,
+ d:"여러 요소를 결합해 원래 없던 새것을 만드는 것. 화합물·신소재·단백질 합성, 빛의 합성(삼원색), 합성함수 g∘f가 모두 같은 구조다.",
+ e:"100여 종의 원소가 결합해 수많은 물질이 되듯, 두 함수를 이어 붙이면 새로운 대응 관계가 생깁니다.",
+ r:"화학 결합, 전사·번역, 합성함수, 창발",a:"분해, 분석",
+ t:["G:2024 자연(공통 개념)"]},
+{w:"순환",hj:"循環",en:"cycle / circulation",c:"통합",s:2,pr:1,
+ d:"물질이나 에너지가 형태를 바꾸며 계 안을 돌아 다시 출발점으로 오는 과정.",
+ e:"탄소는 광합성·먹이 사슬·호흡·분해를 거쳐 대기로 돌아옵니다. 그 균형이 깨지면 기후가 바뀝니다.",
+ r:"탄소 순환, 물 순환, 심층 순환, 순환경제",a:"일방향 흐름",
+ t:["G:2026 자연(탄소 순환)","S:2026 지구"]},
+{w:"다양성",hj:"多樣性",en:"diversity",c:"통합",s:3,pr:1,
+ d:"구성 요소가 여러 종류로 이루어진 정도. 생물 다양성은 생태계·종·유전자 세 수준이 있고, 다양성이 클수록 환경 변화에 대한 적응력과 회복력이 높다.",
+ e:"유전적 다양성이 높은 집단이 전염병에 강하듯, 다양한 문화가 공존하는 사회가 위기에 더 잘 적응합니다.",
+ r:"생물 다양성, 문화 다양성, 회복력, 외래종",a:"획일성",
+ t:["G:2026 인문(생물 다양성)","K:2023 학업우수(문화 다양성)"]},
+{w:"비례 · 반비례",hj:"比例",en:"proportion / inverse proportion",c:"통합",s:3,pr:1,
+ d:"한쪽이 커질 때 다른 쪽도 일정한 비율로 커지면 비례, 일정한 비율로 작아지면(xy=k) 반비례. 유리함수 y=k/x의 그래프로 나타낸다.",
+ e:"경제가 발전할수록 도덕 수준이 오히려 낮아진다는 주장은 두 값이 반비례한다고 보는 셈입니다.",
+ r:"유리함수, 역설, 상관관계",a:"",
+ t:["G:2024 인문(반비례)","K:2023 계열적합(비례·반비례)"]},
+{w:"증명 · 귀납 · 연역 · 귀류",hj:"證明·歸謬",en:"proof / induction / deduction / reductio",c:"통합",s:3,pr:1,
+ d:"귀납은 사례에서 일반 법칙을 끌어내고(개연적), 연역은 일반 원리에서 결론을 끌어낸다(필연적). 귀류법은 결론을 부정하면 모순이 생김을 보여 증명한다.",
+ e:"√2가 유리수라고 가정하면 모순이 생기므로 무리수라는 귀류법은, 과학이 가설을 반박하며 나아가는 방식과 닮았습니다.",
+ r:"과학 탐구 방법, 대우, 반증, 성급한 일반화",a:"",
+ t:["G:2023 자연","K:2024 계열적합 인문","S:2026 수학"]},
+{w:"관찰과 검증",hj:"觀察·檢證",en:"observation / verification",c:"통합",s:3,pr:1,
+ d:"과학은 관찰과 실험으로 가설을 검증한다. 하지만 관찰은 관찰자가 아는 것과 기대하는 것에 따라 달라진다(관찰의 이론 의존성).",
+ e:"토끼-오리 그림처럼, 같은 망원경 영상도 학자가 무엇을 믿느냐에 따라 다르게 보였습니다.",
+ r:"경험주의, 이론 의존성, 갈릴레오, 과학적 방법",a:"권위·사색에 의존",
+ t:["Y:활동우수 2025 자연","Y:기회균형 2024(보도, 마샬 자기 실험)"],p27:"연세대 기회균형 ‘과학철학’ 주제의 핵심"},
+{w:"반증 · 과학의 진보",hj:"反證",en:"falsification / scientific progress",c:"통합",s:3,pr:1,
+ d:"포퍼: 과학은 오류를 체계적으로 비판하고 고치는 활동이라서 진보를 말할 수 있다. 좋은 이론은 반박될 가능성을 열어 둔다.",
+ e:"과학은 틀릴 수 있다는 점 때문에 오히려 믿을 만합니다. 실수가 드러나면 고칠 기준이 있기 때문입니다.",
+ r:"귀류법, 패러다임 전환, 연구 윤리",a:"독단, 검증 불가능한 주장",
+ t:["Y:활동우수 2025 자연(포퍼)"],p27:"연세대 과학철학 주제에서 다시 나올 가능성 큼"},
+{w:"진화 vs 진보",hj:"進化·進步",en:"evolution vs progress",c:"통합",s:3,pr:1,
+ d:"다윈의 진화는 환경에 맞는 특징이 남는 가지치기이고 우열이 없다. 스펜서의 사회진화론은 이를 하등에서 고등으로 오르는 사다리(진보)로 오해해 차별을 정당화했다.",
+ e:"살아남은 개체는 우월한 것이 아니라 그 환경에 맞았을 뿐이므로, 약자 도태를 정당화하는 데 진화론을 쓰는 것은 오류입니다.",
+ r:"자연선택, 사회진화론, 우생학, 위계",a:"",
+ t:["Y:활동우수 2025 인문·통합","S:2026 생명"]},
+{w:"확률 · 무작위성",hj:"確率",en:"probability / randomness",c:"통합",s:3,pr:1,
+ d:"결과를 확정할 수 없을 때 가능성을 수로 나타낸 것. 사람은 무작위한 결과에서도 규칙(패턴)을 찾으려는 경향이 있다.",
+ e:"무작위로 깜박이는 전구 실험에서 쥐는 확률 높은 쪽만 골라 더 많이 맞히지만, 사람은 패턴을 찾다 오히려 덜 맞힙니다.",
+ r:"기댓값, 패턴 인식, 음모론, 확증 편향",a:"결정론",
+ t:["Y:기회균형 2024(보도)","S:2026 수학·사회"]},
+{w:"매개 · 촉매",hj:"媒介·觸媒",en:"mediation / catalyst",c:"통합",s:2,pr:2,
+ d:"자신은 변하지 않으면서 두 대상을 이어 주거나 반응을 빠르게 하는 것. 촉매는 활성화 에너지를 낮춘다.",
+ e:"효소가 반응을 돕듯, 좋은 중재자는 갈등하는 양쪽이 합의에 이르는 길을 낮춰 줍니다.",
+ r:"효소, 활성화 에너지, 중재",a:"",
+ t:["K:2024 학업우수(같은 12분 형식)"],p27:"고른기회 자연 후보"},
+{w:"결핍 · 보충 · 대체",hj:"缺乏·補充·代替",en:"deficiency / supplement / substitution",c:"통합",s:2,pr:2,
+ d:"부족한 것을 채우거나 다른 것으로 바꾸어 기능을 유지하는 관계. 치환은 한 요소를 다른 요소로 바꿔 넣는 것.",
+ e:"치환으로 복잡한 식을 단순하게 바꾸듯, 사회 정책도 부족한 자원을 다른 수단으로 대체합니다.",
+ r:"치환, 대체재, 보완재",a:"",
+ t:["K:2023 학업우수(같은 형식)"]},
+{w:"규칙 · 반복 · 주기",hj:"週期",en:"rule / repetition / periodicity",c:"통합",s:3,pr:2,
+ d:"일정한 간격으로 같은 패턴이 되풀이되는 성질. 삼각함수, 단진동, 계절과 달의 위상, 경기 순환이 같은 구조다.",
+ e:"사인 함수가 2π마다 같은 값을 반복하듯, 경기도 호황과 불황을 되풀이합니다.",
+ r:"삼각함수, 단진동, 수열, 질서",a:"무작위",
+ t:["K:2023 학업우수(규칙·반복·질서)"],p27:"고른기회 자연 미출제 구조 개념 + 삼각함수 연결"},
+{w:"보존 · 전환",hj:"保存·轉換",en:"conservation / transformation",c:"통합",s:2,pr:2,
+ d:"형태가 바뀌어도 총량은 일정하다(에너지·운동량·질량 보존). 발전기는 운동 에너지를 전기 에너지로 전환한다.",
+ e:"자석의 운동 에너지가 코일에서 전기 에너지로 바뀌어도 에너지 총량은 같습니다.",
+ r:"에너지 전환, 운동량 보존, 제로섬",a:"",
+ t:["S:2026 물리"],p27:"2026 전자기 유도(발전) 문항에서 이어질 개념"},
+{w:"대칭",hj:"對稱",en:"symmetry",c:"통합",s:3,pr:2,
+ d:"반사·회전·이동 같은 변환을 해도 바뀌지 않는 성질. 원함수와 역함수는 y=x에 대해 대칭이다.",
+ e:"작용과 반작용은 크기가 같고 방향이 반대인 대칭 관계입니다.",
+ r:"짝을 이룸, 역함수, 보존",a:"비대칭",
+ t:["K:2025 계열적합"],p27:"고른기회 자연 후보, 역함수와 연결"},
+{w:"상호작용",hj:"相互作用",en:"interaction",c:"통합",s:2,pr:2,
+ d:"둘 이상이 서로 영향을 주고받아 각각만으로는 설명할 수 없는 결과를 내는 관계.",
+ e:"생물과 환경이 서로 영향을 주고받듯, 개인과 사회도 서로를 만들어 갑니다.",
+ r:"작용-반작용, 생태계, 수소 결합",a:"",
+ t:["S:2026 화학"],p27:"고른기회 자연 후보"},
+{w:"임계점",hj:"臨界點",en:"critical point / tipping point",c:"통합",s:2,pr:2,
+ d:"작은 변화가 쌓이다가 어느 순간 질적으로 다른 상태로 급변하는 경계. 넘어서면 되돌리기 어렵다.",
+ e:"생태계는 임계점을 넘으면 회복할 수 없으므로 미리 막아야 합니다.",
+ r:"상전이, 변곡점, 양성 피드백",a:"점진적 변화",
+ t:["K:2026 계열적합"]},
+{w:"이중성",hj:"二重性",en:"duality",c:"통합",s:2,pr:3,
+ d:"하나의 대상이 반대되는 두 성질을 동시에 지니는 것. 빛의 파동-입자 이중성이 대표적이다.",
+ e:"기술은 편리함과 위험을 동시에 지닌 이중적 존재입니다.",
+ r:"역함수, 기술의 양면성",a:"",t:["K:2026 계열적합"]},
+{w:"선형 / 비선형",hj:"線形",en:"linear / nonlinear",c:"통합",s:2,pr:3,
+ d:"입력이 두 배면 출력도 두 배인 비례 관계가 선형, 아니면 비선형.",
+ e:"인구는 처음엔 지수적으로 늘다가 환경 수용력에 가까워지면 S자로 꺾입니다.",
+ r:"지수함수, 로지스틱 곡선",a:"",t:["K:2024 계열적합"]},
+{w:"적응",hj:"適應",en:"adaptation",c:"통합",s:2,pr:2,
+ d:"환경 변화에 맞춰 구조나 행동이 바뀌는 것. 진화적 적응, 감각 적응, 소득 증가에 익숙해지는 쾌락 적응까지 넓게 쓴다.",
+ e:"소득이 올라도 곧 익숙해져 행복이 다시 제자리로 돌아오는 것이 쾌락 적응입니다.",
+ r:"자연선택, 다양성, 회복력",a:"",t:["P:예상"],p27:"다양성·진화 기출과 이어지는 개념"},
+{w:"확산",hj:"擴散",en:"diffusion",c:"통합",s:1,pr:3,
+ d:"농도가 높은 곳에서 낮은 곳으로 물질이 퍼지는 현상. 혁신·문화·소문의 전파에도 쓴다.",
+ e:"세포막을 통한 확산처럼, 새 기술도 처음 받아들인 사람에게서 주변으로 퍼집니다.",
+ r:"삼투, 문화 전파",a:"",t:["P:예상"],p27:"고른기회 자연 후보"},
+{w:"함수의 대응 · 역함수",hj:"",en:"mapping / inverse function",c:"통합",s:2,pr:2,
+ d:"함수는 정의역의 각 원소를 공역의 원소 하나에 대응시키는 규칙. 역함수는 그 대응을 거꾸로 되돌린다.",
+ e:"원인에서 결과로 가는 함수의 역함수를 찾는 일은 결과에서 원인을 거슬러 추론하는 것과 같습니다.",
+ r:"합성함수, 대칭, 일대일 대응",a:"",t:["K:2026 계열적합(역함수)"],p27:"고른기회 수학 연결 후보(유리함수 → 합성함수 → 인수분해 다음)"},
+{w:"패러다임 전환",hj:"",en:"paradigm shift",c:"통합",s:2,pr:2,
+ d:"과학자 집단이 공유하던 이론 틀이 반례가 쌓인 끝에 새 틀로 바뀌는 것(토머스 쿤).",
+ e:"천동설에서 지동설로 넘어간 것은 증거 추가가 아니라 세계관의 교체였습니다.",
+ r:"반증, 과학혁명, 임계점",a:"정상과학",
+ t:["K:2023 계열적합(패러다임)"],p27:"연세대 과학철학 주제 후보"},
+{w:"모형 (모델)",hj:"模型",en:"model",c:"통합",s:1,pr:3,
+ d:"복잡한 현실을 핵심 변수만 남겨 단순하게 나타낸 것. 설명력과 한계를 함께 말해야 한다.",
+ e:"보어 원자 모형은 수소는 설명했지만 전자가 많은 원자는 설명하지 못했습니다.",
+ r:"가정, 단순화",a:"",t:["S:2025 물리"]},
+
+// ───── 인문 · 윤리 ─────
+{w:"문화 상대주의 vs 보편 윤리",hj:"文化相對主義",en:"cultural relativism vs universal ethics",c:"인문",s:3,pr:1,
+ d:"각 문화를 그 사회의 환경·역사·맥락 속에서 이해하려는 태도가 문화 상대주의. 그러나 인권과 생명을 해치는 관습(명예 살인 등)까지 인정하지는 않는다. 그 한계선이 보편 윤리다.",
+ e:"혼분식 운동은 당시 상황에선 이해할 수 있지만, 아이를 때리는 것은 시대 맥락으로도 정당화할 수 없습니다.",
+ r:"윤리적 상대주의, 극단적 상대주의, 자문화 중심주의, 인간 존엄",a:"자문화 중심주의, 문화 사대주의",
+ t:["G:2026 인문","K:2024 학업우수(보편·특수 윤리)","K:2023 학업우수"]},
+{w:"공리주의 (행위 vs 규칙)",hj:"功利主義",en:"act / rule utilitarianism",c:"인문",s:3,pr:1,
+ d:"결과가 낳는 행복의 총량으로 옳고 그름을 판단한다. 행위 공리주의는 행동마다 결과를 계산하고, 규칙 공리주의는 대체로 최대 행복을 가져오는 규칙(예: 거짓말 금지)을 따른다.",
+ e:"규칙 공리주의는 계산이 효율적이고 상식과 맞지만, 규칙끼리 부딪칠 때 기준을 주지 못합니다.",
+ r:"벤담, 밀, 결과주의",a:"의무론",
+ t:["G:2026 인문(규칙 공리주의)"]},
+{w:"의무론",hj:"義務論",en:"deontology",c:"인문",s:3,pr:1,
+ d:"결과와 상관없이 지켜야 할 도덕 법칙이 있다는 입장(칸트). 보편화할 수 있는 원칙에 따라 행동하고, 사람을 수단이 아닌 목적으로 대하라.",
+ e:"거짓말이 좋은 결과를 낳더라도 그 자체로 그르다고 보는 것이 의무론입니다.",
+ r:"정언명령, 인간 존엄",a:"공리주의",
+ t:["P:예상"],p27:"공리주의가 나왔으니 짝이 되는 칸트 윤리가 유력"},
+{w:"인간 중심주의 vs 생태 중심주의",hj:"人間中心主義",en:"anthropocentrism vs ecocentrism",c:"인문",s:3,pr:1,
+ d:"인간만이 도덕적 존재이고 자연은 인간에게 쓸모 있는 한에서 가치가 있다는 입장(베이컨)과, 동물·생태계까지 도덕적 고려를 넓혀야 한다는 입장.",
+ e:"자연을 정복 대상으로만 본 인간 중심주의가 환경 오염과 생태계 파괴를 정당화했다는 비판이 있습니다.",
+ r:"동물권, 환경 윤리, 지속가능발전",a:"",
+ t:["G:2023 인문","Y:활동우수 2025(인간-동물 구분)"]},
+{w:"위계 · 비인간화",hj:"位階",en:"hierarchy / dehumanization",c:"인문",s:3,pr:1,
+ d:"존재를 위아래로 나누는 사고. 어떤 사람을 ‘덜 인간적’이라고 여기면 그들에 대한 폭력과 차별을 쉽게 받아들이게 된다.",
+ e:"특정 집단을 ‘덜 진화했다’고 본 사람일수록 그 집단에 대한 고문에 더 많이 찬성했습니다.",
+ r:"사회진화론, 차별, 편견, 인간 존엄",a:"평등, 존중",
+ t:["Y:활동우수 2025 인문·통합"]},
+{w:"자유와 권리",hj:"自由·權利",en:"liberty and rights",c:"인문",s:3,pr:1,
+ d:"간섭받지 않을 자유(소극적)와 스스로 원하는 삶을 실현할 자유(적극적). 밀의 위해의 원칙: 남에게 해를 끼치지 않는 한 개인의 자유는 제한할 수 없다. 권리는 의무·책임과 짝을 이룬다.",
+ e:"마스크 의무화 논쟁은 개인의 자유와 타인에게 미칠 해 사이의 경계를 묻는 문제입니다.",
+ r:"위해의 원칙, 종속, 권리와 의무",a:"종속, 강제",
+ t:["Y:기회균형 안내서 기출 주제(보도)","K:2024 학업우수(종속·자유)"],p27:"연세대 기회균형 인문·통합 핵심 후보"},
+{w:"시민 참여 · 시민 불복종",hj:"不服從",en:"civic participation / civil disobedience",c:"인문",s:3,pr:1,
+ d:"시민 참여는 대의 민주주의를 보완한다. 시민 불복종은 정의롭지 못한 법을 바꾸려는 공익 목적의 양심적·비폭력적 위법 행위로, 처벌을 감수하고 최후 수단으로 행한다(롤스).",
+ e:"로자 파크스의 버스 좌석 거부처럼, 시민 불복종은 정지된 제도를 흔들어 새 질서를 만듭니다.",
+ r:"대의 민주주의, 정의, 소로, 롤스",a:"폭력 저항, 단순 위법",
+ t:["G:2026 자연(시민 불복종)","K:2024 계열적합(시민참여)"]},
+{w:"역설",hj:"逆說",en:"paradox",c:"인문",s:3,pr:1,
+ d:"겉으로는 모순되어 보이지만 그 안에 진실을 담은 표현이나 현상. 쾌락을 좇을수록 오히려 쾌락에서 멀어지는 ‘쾌락의 역설’이 대표적이다.",
+ e:"행복을 목표로 삼을수록 행복이 멀어진다는 것은, 직접 쫓으면 얻을 수 없는 가치가 있다는 역설입니다.",
+ r:"쾌락주의, 금욕주의, 아이러니",a:"",
+ t:["G:2024 인문"]},
+{w:"통념과 실재",hj:"通念·實在",en:"common belief vs reality",c:"인문",s:3,pr:1,
+ d:"사람들이 당연하게 믿는 생각(통념)과 실제 모습(실재)은 다를 수 있다. 실재는 직접 경험하고 일하는 사람의 관점에서 드러나기도 한다.",
+ e:"지붕부터 집을 그리는 우리와 달리, 목수는 주춧돌부터 그립니다. 집을 짓는 순서가 실재이기 때문입니다.",
+ r:"역설, 관찰의 이론 의존성, 편견",a:"",
+ t:["G:2024 인문(노인 목수의 집 그림)"]},
+{w:"산업화와 소외",hj:"疏外",en:"industrialization / alienation",c:"인문",s:3,pr:1,
+ d:"산업화는 물질적 풍요를 가져왔지만 고향 상실·노동 소외를 낳았다. 소외는 인간이 자신이 만든 노동·제도·기술에 오히려 지배당하는 상태(마르크스).",
+ e:"「삼포 가는 길」의 인물들은 개발로 사라진 고향 앞에서 갈 곳을 잃은 산업화 시대의 소외된 사람들입니다.",
+ r:"러다이트, 근대화, 노동",a:"",
+ t:["G:2023 인문"]},
+{w:"기술과 인간 (로봇 · AI)",hj:"",en:"technology and humanity",c:"인문",s:3,pr:1,
+ d:"기계가 노동을 덜어 주기도 하지만 일자리를 위협하기도 한다(러다이트 운동). 지능을 가진 로봇을 도덕적 존재로 볼 수 있는지도 쟁점이다.",
+ e:"기술 발달을 지나치게 두려워하는 ‘러다이트 오류’도 있지만, 일자리를 잃은 사람의 고통은 실제입니다.",
+ r:"러다이트 오류, 인공지능 윤리, 기술의 양면성",a:"",
+ t:["G:2023 인문(로봇·러다이트)"],p27:"AI 시대 시의성, 연세대·고려대 모두 후보"},
+{w:"공감 · 측은지심",hj:"共感·惻隱之心",en:"empathy / compassion",c:"인문",s:2,pr:2,
+ d:"타인의 처지를 그 사람의 자리에서 느끼는 능력. 맹자는 남의 불행을 차마 보지 못하는 마음을 인(仁)의 실마리로 보았다. 다만 눈앞의 대상에만 쏠리는 한계가 있다.",
+ e:"끌려가는 소는 불쌍히 여기고 보이지 않는 양은 죽이게 한 왕의 이야기는 공감의 한계를 보여 줍니다.",
+ r:"공정한 관찰자, 상상력",a:"무관심",
+ t:["K:2024 학업우수 모의","S:2026 인문"]},
+{w:"인간 존엄성",hj:"尊嚴性",en:"human dignity",c:"인문",s:3,pr:2,
+ d:"사람은 어떤 조건과도 상관없이 그 자체로 존중받아야 한다는 가치. 인권의 근거이며 문화 상대주의의 한계선이다.",
+ e:"아무리 좋은 목적이라도 아이에게 체벌을 가하는 것은 인간 존엄을 해칩니다.",
+ r:"칸트, 인권, 보편 윤리",a:"수단화",
+ t:["K:2024 학업우수(같은 형식)"]},
+{w:"공동체주의 vs 자유주의",hj:"",en:"communitarianism vs liberalism",c:"인문",s:2,pr:2,
+ d:"개인은 공동체의 전통과 관계 속에서 정체성을 얻는다는 입장(샌델)과, 개인의 권리와 선택이 먼저라는 입장. 복지국가 논쟁과 이어진다.",
+ e:"혼분식 운동처럼 ‘공동체를 위해’라는 이름으로 개인의 선택을 억누르면 공동체주의의 위험이 드러납니다.",
+ r:"복지국가, 시민적 덕성, 사회적 자본",a:"",
+ t:["K:2023 학업우수(같은 형식)"],p27:"고른기회 인문 후보"},
+{w:"국가 개입 vs 자율 (무위)",hj:"無爲",en:"state intervention vs laissez-faire",c:"인문",s:2,pr:2,
+ d:"국가가 적극적으로 개입해 문제를 해결해야 한다는 입장과, 노자의 무위의 다스림처럼 간섭을 줄여 스스로 질서를 찾게 해야 한다는 입장. 중앙집권 vs 지방분권과도 이어진다.",
+ e:"오스트레일리아 정부의 토끼 퇴치처럼 개입이 또 다른 부작용을 낳기도 합니다.",
+ r:"지방분권, 시장 실패, 정부 실패",a:"",
+ t:["K:2024 학업우수(같은 형식)"]},
+{w:"분배적 정의",hj:"正義",en:"distributive justice",c:"인문",s:3,pr:2,
+ d:"사회의 재화를 어떻게 나눌 것인가. 롤스의 차등 원칙(가장 불리한 사람에게 이익), 노직의 소유권, 공리주의적 분배가 대비된다.",
+ e:"무지의 베일 뒤에서라면 우리는 최악의 처지를 대비하는 원칙을 고를 것입니다.",
+ r:"롤스, 형평, 공정",a:"",
+ t:["P:예상"],p27:"기회균형 전형 취지와도 맞닿은 정의 이론, 고른기회 인문 후보"},
+{w:"사회 계약",hj:"社會契約",en:"social contract",c:"인문",s:2,pr:2,
+ d:"국가 권력은 구성원의 동의(계약)에서 나온다는 이론(홉스·로크·루소). 계약을 어기는 권력에는 저항할 수 있다는 근거가 된다.",
+ e:"로크에 따르면 시민의 생명·자유·재산을 지키지 못하는 정부는 정당성을 잃습니다.",
+ r:"시민 불복종, 저항권, 정당성",a:"왕권신수설",
+ t:["P:예상"],p27:"시민 불복종 기출과 이어지는 개념"},
+{w:"덕 윤리",hj:"德倫理",en:"virtue ethics",c:"인문",s:2,pr:2,
+ d:"어떤 행위가 옳은가보다 ‘어떤 사람이 되어야 하는가’를 묻는 윤리(아리스토텔레스). 습관으로 길러지는 품성과 중용을 강조한다.",
+ e:"용기는 무모함과 비겁함의 중간이라는 중용의 덕입니다.",
+ r:"중용, 품성, 공동체주의",a:"",t:["P:예상"],p27:"공리주의·의무론과 함께 3대 윤리 이론"},
+{w:"직업윤리",hj:"職業倫理",en:"work ethic",c:"인문",s:2,pr:2,
+ d:"일을 생계 수단만이 아니라 책임과 의미의 영역으로 보는 태도. 장인 정신, 소명 의식, 경제적 이익과 환경 보전 사이의 책임.",
+ e:"장인은 보이지 않는 곳까지 정성을 들인다는 점에서 일 자체를 존중합니다.",
+ r:"장인 정신, 기업의 사회적 책임",a:"",
+ t:["K:2025 계열적합"]},
+{w:"갈등 해결 · 화쟁",hj:"和諍",en:"conflict resolution",c:"인문",s:2,pr:2,
+ d:"서로 다른 주장은 각각 진리의 한 면을 담고 있으므로 조화시킬 수 있다는 원효의 화쟁 사상. 일방적인 질책이나 거부는 갈등을 키운다.",
+ e:"상대를 오해했다는 깨달음이 갈등 해결의 첫걸음입니다.",
+ r:"관용, 소통, 세계시민주의",a:"배제",
+ t:["K:2026 계열적합"]},
+{w:"세계시민주의 · 세계화",hj:"",en:"cosmopolitanism / globalization",c:"인문",s:2,pr:2,
+ d:"국가를 넘어 모든 인간이 하나의 세계 공동체 구성원이라는 입장. 세계화는 효율을 높이지만 불평등과 문화 획일화도 낳는다.",
+ e:"외래종이 고유종을 밀어내기도 하듯, 세계화도 지역 문화를 위협할 수 있습니다.",
+ r:"다문화, 보편 인권",a:"자민족 중심주의",
+ t:["K:2026 계열적합","G:2026 인문 예시답안(세계화)"]},
+{w:"지속가능발전",hj:"持續可能發展",en:"sustainable development",c:"인문",s:2,pr:2,
+ d:"미래 세대가 필요를 채울 능력을 해치지 않으면서 현재의 필요를 충족하는 발전. 경제·환경·사회의 균형을 함께 본다.",
+ e:"토끼를 들여온 농장주의 선택처럼 눈앞의 이익만 좇으면 생태계에 오래 남는 비용을 치릅니다.",
+ r:"환경 윤리, 기후 변화, 외부효과",a:"",
+ t:["G:2026 재외·북한이탈 인문(같은 형식)"]},
+{w:"연구 윤리",hj:"",en:"research ethics",c:"인문",s:2,pr:2,
+ d:"데이터 조작·선별, 표절을 하지 않고 정직하게 연구해야 한다는 원칙. 과학의 신뢰는 오류를 드러내고 고치는 데서 나온다.",
+ e:"멘델의 데이터가 지나치게 정확해 선별 의혹을 받은 것은, 좋은 결론도 과정이 정직해야 함을 보여 줍니다.",
+ r:"반증, 생명 윤리",a:"",t:["Y:활동우수 2025 자연(멘델)"]},
+{w:"역사 · 해석",hj:"",en:"history / interpretation",c:"인문",s:1,pr:3,
+ d:"역사학은 진실을 추구하지만 이야기 형식을 벗어날 수 없다. 사료 선택과 해석에 관점이 개입한다.",
+ e:"같은 사건도 누구의 기억으로 쓰느냐에 따라 의미가 달라집니다.",
+ r:"번역, 기억",a:"",t:["S:2024·2025 인문"]},
+{w:"공정한 관찰자",hj:"",en:"impartial spectator",c:"인문",s:1,pr:3,
+ d:"애덤 스미스. 내 행동을 이해관계 없는 제3자의 눈으로 바라보며 판단하는 내면의 기준.",
+ e:"공정한 관찰자의 시선을 빌리면 내 이익이 걸린 판단도 한 걸음 떨어져 볼 수 있습니다.",
+ r:"공감, 무지의 베일",a:"",t:["S:2026 인문"]},
+
+// ───── 사회 · 자료 ─────
+{w:"음모론과 확증 편향",hj:"",en:"conspiracy theory / confirmation bias",c:"사회",s:3,pr:1,
+ d:"복잡한 사건을 누군가의 악의적 계획으로 단순하게 설명하는 이야기. 불안을 덜고 통제감을 주지만, 믿고 싶은 정보만 받아들이는 확증 편향과 결합해 검증을 거부한다.",
+ e:"나쁜 일이 우연이라는 사실보다 누군가의 음모라는 설명이 더 위안이 되기에 음모론이 퍼집니다.",
+ r:"과학적 검증, 무작위성, 과신",a:"과학적 회의",
+ t:["Y:기회균형 2024(보도)","S:2026 사회(과신)"]},
+{w:"과학적 사고 vs 직관 · 믿음",hj:"",en:"scientific reasoning vs intuition",c:"사회",s:3,pr:1,
+ d:"과학은 가설을 세우고 증거로 검증한다. 직관이나 감성에 기댄 판단(자연주의 육아 등)은 빠르고 편하지만 틀려도 고쳐지기 어렵다.",
+ e:"위궤양균 가설을 증명하려 스스로 균을 마신 과학자처럼, 과학은 믿음이 아니라 검증으로 설득합니다.",
+ r:"관찰과 검증, 반증, 음모론",a:"",
+ t:["Y:기회균형 2024(보도)"],p27:"연세대 기회균형 ‘세상을 이해하는 방식’ 계열"},
+{w:"상관관계 vs 인과관계",hj:"相關·因果",en:"correlation vs causation",c:"사회",s:3,pr:2,
+ d:"두 변수가 함께 움직인다고 한쪽이 다른 쪽의 원인인 것은 아니다. 인과를 말하려면 시간 순서, 함께 변함, 다른 원인의 배제가 필요하다.",
+ e:"아이스크림 판매와 익사 사고가 함께 늘어나는 것은 ‘더운 날씨’라는 공통 원인 때문입니다.",
+ r:"허위 상관, 제3변인, 역인과",a:"",
+ t:["K:2025·2026 계열적합"]},
+{w:"표본과 대표성 · 성급한 일반화",hj:"",en:"sampling / hasty generalization",c:"사회",s:2,pr:2,
+ d:"일부로 전체를 추론하려면 표본이 전체를 고르게 반영해야 한다. 적은 사례나 살아남은 사례만 보고 일반화하면 오류다.",
+ e:"성공한 기업가만 인터뷰하면 같은 방식으로 실패한 다수는 보이지 않습니다.",
+ r:"귀납의 한계, 생존자 편향",a:"",
+ t:["K:2024 계열적합"]},
+{w:"기후 변화 vs 사회 구조 변화",hj:"",en:"climate change / social structural change",c:"사회",s:2,pr:2,
+ d:"둘 다 쉽게 바뀌지 않다가 누적된 원인이 임계점을 넘으면 변한다. 다만 기후는 물리 법칙에 따라, 사회 구조는 구성원의 의식과 법·제도의 변화로 바뀐다.",
+ e:"사회 구조는 시민의 의식이 바뀌면 되돌릴 수 있지만, 기후 변화는 한번 넘으면 되돌리기 어렵습니다.",
+ r:"임계점, 지속가능발전, 시민 참여",a:"",
+ t:["G:2026 재외·북한이탈 인문(같은 형식)"]},
+{w:"이스털린 역설 · 행복",hj:"",en:"Easterlin paradox / well-being",c:"사회",s:2,pr:3,
+ d:"소득이 일정 수준을 넘으면 더 늘어도 행복은 크게 오르지 않는 현상. 상대 소득, 적응, 사회적 관계가 설명 요인이다.",
+ e:"1인당 GDP는 올랐는데 행복도가 제자리라면 소득 밖의 요인을 봐야 합니다.",
+ r:"쾌락 적응, 사회적 자본, 역설",a:"",
+ t:["K:2025·2026 계열적합","S:2024 사회"]},
+{w:"사회적 자본",hj:"",en:"social capital",c:"사회",s:2,pr:3,
+ d:"사람 사이의 신뢰·규범·관계망이 협력을 쉽게 만드는 자원 역할을 하는 것(퍼트넘 『나 홀로 볼링』).",
+ e:"함께하는 활동이 줄면 사회적 자본이 약해져 공동체의 문제 해결 능력이 떨어집니다.",
+ r:"신뢰, 시민 참여",a:"",t:["K:2026 계열적합"]},
+{w:"자기실현적 예언",hj:"",en:"self-fulfilling prophecy",c:"사회",s:2,pr:3,
+ d:"어떤 믿음이 사람들의 행동을 바꾸어 결국 그 예언이 현실이 되는 현상(머튼).",
+ e:"은행이 망한다는 소문만으로 예금 인출이 몰려 실제로 은행이 무너집니다.",
+ r:"양성 피드백, 낙인",a:"",t:["S:2025 사회"]},
+{w:"권력과 감시",hj:"",en:"power / surveillance",c:"사회",s:2,pr:3,
+ d:"권력은 강제력뿐 아니라 보이지 않는 시선과 규범으로도 작동한다(푸코의 파놉티콘).",
+ e:"CCTV는 안전을 높이지만, 감시당한다는 의식이 자기검열을 낳기도 합니다.",
+ r:"시민 참여, 정보사회",a:"",t:["K:2024 계열적합"]},
+{w:"외부효과 · 공유지의 비극",hj:"",en:"externality / tragedy of the commons",c:"사회",s:2,pr:2,
+ d:"경제 활동이 제3자에게 대가 없이 손해나 이익을 주는 것이 외부효과. 함께 쓰는 자원을 각자 마음껏 쓰다 고갈되는 것이 공유지의 비극.",
+ e:"토끼를 들여온 농장주의 사냥 취미가 나라 전체 생태계에 손해를 끼친 것은 외부효과입니다.",
+ r:"지속가능발전, 시장 실패",a:"",t:["P:예상"],p27:"환경·지속가능 주제(같은 형식 2026)에서 이어짐"}
+];
+
+const KEY = "sky-vocab-done-v2";
+let done = {};
+try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { done = {}; }
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} };
+
+const $ = id => document.getElementById(id);
+const state = {pr:"all", uni:"all", cat:"all", q:"", todo:false, p27:false};
+const uniName = {G:"고려대 고른기회",Y:"연세대",K:"고려대",S:"서울대",P:""};
+const esc = s => String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+W.forEach((x,i)=>{ x.id = "w"+(i+1); x.ord = i; });
+const sorted = [...W].sort((a,b)=>a.pr-b.pr || a.ord-b.ord);
+const tagText = t => { const k = t[0], v = t.slice(2); return (uniName[k] ? uniName[k]+" " : "") + v; };
+
+// 연세대 기회균형 D-day (보도 기준 2026-11-01)
+(function(){
+  const t = new Date(2026,10,1), n = new Date(); n.setHours(0,0,0,0);
+  const d = Math.round((t - n) / 864e5);
+  $("dday").textContent = d > 0 ? "D-"+d : d === 0 ? "D-day" : "종료";
+})();
+
+const cats = [["통합","통합 개념"],["인문","인문 · 윤리"],["사회","사회 · 자료"]];
+function renderPrio(){
+  $("prio").innerHTML = cats.map(([c,label])=>{
+    const xs = sorted.filter(x=>x.pr===1 && x.c===c);
+    if (!xs.length) return "";
+    return `<div class="panel"><h3>${label}<span>${xs.filter(x=>done[x.w]).length}/${xs.length}</span></h3><ul>${xs.map(x=>
+      `<li><a href="#${x.id}" class="${done[x.w]?"ok":""}"><span class="box" aria-hidden="true">${done[x.w]?"✓":""}</span><span><b>${esc(x.w)}</b><small>${esc(tagText(x.t[0]||""))}</small></span></a></li>`
+    ).join("")}</ul></div>`;
+  }).join("");
+}
+
+function render(){
+  const q = state.q.trim().toLowerCase();
+  const rows = sorted.filter(x=>{
+    if (state.pr !== "all" && String(x.pr) !== state.pr) return false;
+    if (state.uni !== "all" && !x.t.some(t=>t[0]===state.uni)) return false;
+    if (state.cat !== "all" && x.c !== state.cat) return false;
+    if (state.p27 && !x.p27) return false;
+    if (state.todo && done[x.w]) return false;
+    if (q && ![x.w,x.en,x.hj,x.r,x.d].join(" ").toLowerCase().includes(q)) return false;
+    return true;
+  });
+  $("list").innerHTML = rows.length ? rows.map((x,n)=>`
+    <article class="entry${done[x.w]?" done":""}" id="${x.id}" data-w="${esc(x.w)}">
+      <div class="ix"><span class="n">${String(n+1).padStart(2,"0")}</span><span class="pri p${x.pr}">${x.pr}순위</span></div>
+      <div class="hw">
+        <h3>${esc(x.w)}</h3>
+        ${x.hj?`<p class="hj">${esc(x.hj)}</p>`:""}
+        <p class="en">${esc(x.en)}</p>
+        <div class="foot"><span class="cat">${x.c}</span><label class="chk"><input type="checkbox" id="chk-${x.id}" ${done[x.w]?"checked":""}> 외웠음</label></div>
+      </div>
+      <div class="bd">
+        <p class="def">${esc(x.d)}</p>
+        <p class="ex"><b>예문</b>${esc(x.e)}</p>
+        <dl class="rel"><dt>연관</dt><dd>${esc(x.r)}</dd>${x.a?`<dt>대비</dt><dd>${esc(x.a)}</dd>`:""}</dl>
+        <ul class="src">${x.t.map(t=>`<li class="${t[0]}">${esc(tagText(t))}</li>`).join("")}</ul>
+        ${x.p27?`<p class="p27"><b>2027</b>${esc(x.p27)}</p>`:""}
+      </div>
+    </article>`).join("") : `<div class="empty">조건에 맞는 단어가 없습니다. 필터를 줄여 보세요.</div>`;
+  const n = W.filter(x=>done[x.w]).length;
+  $("stat").textContent = `${rows.length}개 표시 · 외운 단어 ${n}/${W.length}`;
+  $("doneN").textContent = n; $("totalN").textContent = W.length;
+}
+
+$("prSeg").addEventListener("click", e=>{
+  const b = e.target.closest("button"); if (!b) return;
+  state.pr = b.dataset.v;
+  $("prSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", x===b));
+  render();
+});
+$("uniSel").addEventListener("change", e=>{ state.uni = e.target.value; render(); });
+$("catSel").addEventListener("change", e=>{ state.cat = e.target.value; render(); });
+$("p27Chk").addEventListener("change", e=>{ state.p27 = e.target.checked; render(); });
+$("todoChk").addEventListener("change", e=>{ state.todo = e.target.checked; render(); });
+$("hideChk").addEventListener("change", e=>{ $("list").classList.toggle("hide", e.target.checked); });
+$("q").addEventListener("input", e=>{ state.q = e.target.value; render(); });
+
+function resetFilters(){
+  Object.assign(state,{pr:"all",uni:"all",cat:"all",q:"",todo:false,p27:false});
+  $("prSeg").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v==="all"));
+  $("uniSel").value = "all"; $("catSel").value = "all"; $("q").value = "";
+  $("p27Chk").checked = false; $("todoChk").checked = false;
+  render();
+}
+$("prio").addEventListener("click", e=>{
+  const a = e.target.closest("a"); if (!a) return;
+  // 필터 때문에 카드가 숨어 있으면 모두 보이게 되돌림
+  if (!document.querySelector(a.getAttribute("href"))) resetFilters();
+});
+$("list").addEventListener("change", e=>{
+  if (!e.target.matches(".chk input")) return;
+  done[e.target.closest(".entry").dataset.w] = e.target.checked;
+  save(); render(); renderPrio();
+});
+$("list").addEventListener("click", e=>{
+  const bd = e.target.closest(".hide .bd"); if (!bd) return;
+  bd.closest(".entry").classList.toggle("open");
+});
+
+// 지금 보고 있는 섹션을 목차에 표시
+const navLinks = [...document.querySelectorAll(".links a")];
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es=>{
+    es.forEach(en=>{
+      if (!en.isIntersecting) return;
+      navLinks.forEach(a=>a.setAttribute("aria-current", a.getAttribute("href")==="#"+en.target.id));
+    });
+  }, {rootMargin:"-35% 0px -60% 0px"});
+  document.querySelectorAll(".sec").forEach(s=>io.observe(s));
+}
+
+renderPrio();
+render();
+</script>
+</body>
+</html>
